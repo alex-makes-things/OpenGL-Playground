@@ -1,4 +1,4 @@
-workspace "My GLFW Attempt"
+workspace "OpenGL Playground"
 	configurations {"Debug", "Release", "Dist"}
 	architecture "x86"
 	startproject "App"
