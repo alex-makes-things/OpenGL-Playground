@@ -13,6 +13,7 @@ project "App"
 	location "Build/%{prj.name}"
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	defines "GLEW_STATIC"
 
 	files{
 		"%{prj.name}/src/**.cpp",
@@ -21,15 +22,19 @@ project "App"
 
 
 	libdirs{
-		("Vendor/GLFW/lib-vc2022")
+		("Vendor/GLFW/lib-vc2022"),
+		("Vendor/GLEW/lib/Release/Win32")
 	}
 	includedirs{
-		("Vendor/GLFW/include")
+		("Vendor/GLFW/include"),
+		("Vendor/GLEW/include")
 	}
 	links {
 		"Opengl32",
-		"glfw3"
+		"glfw3",
+		"glew32s"
 	}
+
 
 	filter { "configurations:Dist" }
 		kind "WindowedApp"
